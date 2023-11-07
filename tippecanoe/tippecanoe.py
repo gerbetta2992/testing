@@ -1,0 +1,1 @@
+tippecanoe -o cogs.tif -z 10 -f cog input.geojson

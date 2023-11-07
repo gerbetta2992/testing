@@ -1,0 +1,40 @@
+{
+  "version": 8,
+  "name": "Uat Basic",
+  "metadata": {
+    "mapbox:autocomposite": true,
+    "mapbox:type": "template",
+    "openmaptiles:version": "3.x"
+  },
+  "center": [
+    -18.297218747372437,
+    64.82844959984507
+  ],
+  "zoom": 5.241790506353492,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "uat": {
+      "type": "vector",
+      "url": "mbtiles://{uat}"
+    }
+  },
+  "glyphs": "{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "airbnb",
+      "type": "circle",
+      "source": "uat",
+      "source-layer": "airbnb",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": 6,
+        "circle-color": "red"
+      }
+    }
+    
+    
+  ]
+}

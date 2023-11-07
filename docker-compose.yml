@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: backend-tiles
+    #image: python:3.9-slim
+    depends_on:
+      - tileserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    #command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+
+  tileserver:
+    image: maptiler/tileserver-gl:latest
+    container_name: tileserver
+    volumes:
+      - .:/data
+    restart: always
+    command: ["-p", "8080", --verbose, "-c", "tiles/config.json"]
+    ports:
+      - "8080:8080"

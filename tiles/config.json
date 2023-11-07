@@ -1,0 +1,50 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "fonts": "fonts",
+      "styles": "styles",
+      "mbtiles": ""
+    },
+    "maxSize": 2048
+    
+  },
+  "styles": {
+    "klokantech-basic": {
+      "style": "klokantech-basic/style.json",
+      "tilejson": {
+        "type": "overlay"
+        
+      }
+    },
+    "test-style": {
+      "style": "osm-bright/style.json",
+      "tilejson": {
+        "type": "overlay",
+        "bounds": [8.529446, 47.364758, 8.55232, 47.380539]
+      }
+    },
+    "uat": {
+      "style": "uat/style.json",
+      "tilejson": {
+        "type": "vector",
+        "bounds": [-26.147461,62.955223,-11.293945,66.990256]
+      }
+    },
+    "uat-basic": {
+      "style": "uat-basic/style.json",
+      "tilejson": {
+        "type": "vector",
+        "bounds": [-26.147461,62.955223,-11.293945,-11.990256]
+      }
+    }
+  },
+  "data": {
+    "uat": {
+      "mbtiles": "uat.mbtiles"
+    },
+    "openmaptiles": {
+      "mbtiles": "zurich_switzerland.mbtiles"
+    }
+  }
+}
