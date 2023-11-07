@@ -4,7 +4,7 @@ env:
   variables:
     AWS_DEFAULT_REGION: "us-east-1"
     ECR_REPOSITORY_NAME: "omnilayers-tiles"
-    AWS_ACCOUNT_ID: "566578246562"
+    AWS_ACCOUNT_ID: "403179053416"
 
 phases:
   pre_build:
@@ -15,8 +15,8 @@ phases:
       #- aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 566578246562.dkr.ecr.us-east-1.amazonaws.com
       - # Replace with this to your repository URI
       #- REPOSITORY_URI=$(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 566578246562.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=566578246562.dkr.ecr.us-east-1.amazonaws.com/omnilayers-tiles
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 403179053416.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=403179053416.dkr.ecr.us-east-1.amazonaws.com/testing
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
 
   build:
@@ -35,7 +35,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - DOCKER_CONTAINER_NAME=omnilayers-tiles
+      - DOCKER_CONTAINER_NAME=testing
       - printf '[{"name":"%s","imageUri":"%s:%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI $IMAGE_TAG > imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo Printing imagedefinitions.json
